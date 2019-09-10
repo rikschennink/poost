@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-async-root="body">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Set File Input FileList</title>
+
+</head>
+<body>
+
+  <form action="/post.php" method="POST" data-async>
+
+    <p>
+      <input type="text" name="text-include" value="a">
+    </p>
+
+    <input type="checkbox" name="check-dont-include" value="a">
+
+    <input type="checkbox" name="check-include" value="a" checked>
+
+    <input type="radio" name="radio-include" value="a">
+    <input type="radio" name="radio-include" value="b" checked>
+    <input type="radio" name="radio-include" value="c">
+
+    <input type="radio" name="radio-dont-include" value="a">
+    <input type="radio" name="radio-dont-include" value="b">
+    <input type="radio" name="radio-dont-include" value="c">
+
+    <p>
+      <select name="gender">
+        <option value="foo">foo</option>
+        <option value="bar">bar</option>
+        <option value="baz">baz</option>
+      </select>
+    </p>
+    
+    <p>
+      <select name="gender-multiple" multiple>
+        <option value="foo">foo</option>
+        <option value="bar">bar</option>
+        <option value="baz">baz</option>
+      </select>
+    </p>
+    
+    <p>
+      <input type="file" name="picture" multiple>
+    </p>
+
+    <button type="submit">Send</button>
+
+  </form>
+
+  <script>
+  const myFile = new File(['Hello World!'], 'myFile.txt', { type: 'text/plain', lastModified: new Date() });
+  const target = document.querySelector('input[type="file"]');
+  target._value = [myFile];
+  </script>
+
+  <script src="./index.js"></script>
+
+</body>
+</html>
